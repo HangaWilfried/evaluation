@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --text-xs: 12px;
+    --text-sm: 14px;
+    --text-base: 18px;
+  }
+  @media (min-width: 768px) {
+    :root {
+      --text-xs: 13px;
+      --text-sm: 15px;
+      --text-base: 19px;
+    }
+  }
+  @media (min-width: 1024px) {
+    :root {
+      --text-xs: 14px;
+      --text-sm: 16px;
+      --text-base: 20px;
+    }
+  }
+}
