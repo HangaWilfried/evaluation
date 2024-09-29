@@ -33,9 +33,9 @@ const router = createRouter({
           name: "auth.linkedin.login",
           component: () => import("@/views/auth/LinkedinProcessingLogin.vue"),
         },
-      ]
-    }
-  ]
+      ],
+    },
+  ],
 });
 
 export default router;

@@ -1,9 +1,9 @@
 <template>
-    <div>
-      <p>Logging in with LinkedIn...</p>
-    </div>
-  </template>
-  
+  <div>
+    <p>Logging in with LinkedIn...</p>
+  </div>
+</template>
+
 <script setup lang="ts">
 import { onBeforeMount, ref } from "vue";
 import { useRouter } from "vue-router";
@@ -25,4 +25,3 @@ onBeforeMount(async () => {
   isLoading.value = false;
 });
 </script>
-  

@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 @layer base {
+  input,
+  button {
+    @apply outline-none;
+  }
   :root {
     --text-xs: 12px;
     --text-sm: 14px;
