@@ -10,7 +10,7 @@
         </button>
         <button
           class="flex gap-2 items-center border border-slate-300 rounded-full px-2 py-1 size-10"
-          @click="loginUsingLinkedinAuthProvider"
+          @click="session.loginUsingLinkedinAuthProvider"
         >
           <IconLinkedin />
         </button>
@@ -38,27 +38,30 @@
 </template>
 
 <script setup lang="ts">
+import { useRouter } from "vue-router";
+import { useSessionStore } from "@/stores/session";
+
 import { googleSdkLoaded } from "vue3-google-login";
-import { GOOGLE_CLIENT_ID, SCOOPES } from "@/utils/constants";
 
 import IconGoogle from "@/components/icons/IconGoogle.vue";
 import IconLinkedin from "@/components/icons/IconLinkedin.vue";
+
+const session = useSessionStore();
+const router = useRouter();
+
 
 const loginUsingGoogleAuthProvider = () => {
   googleSdkLoaded((google) => {
     google.accounts.oauth2
       .initTokenClient({
-        client_id: GOOGLE_CLIENT_ID,
-        scope: SCOOPES,
-        callback: (response) => {
-          console.log("Handle the response", response.access_token);
+        client_id: import.meta.env.VITE_GOOGLE_CLIENT_ID,
+        scope: import.meta.env.VITE_GOOGLE_SCOOPES,
+        callback: async (response) => {
+          localStorage.setItem("google_token_ref", response.access_token);
+          await router.push({ name: "auth.google.login" });
         }
       })
       .requestAccessToken();
   });
-};
-
-const loginUsingLinkedinAuthProvider = () => {
-  console.log("success");
 };
 </script>
