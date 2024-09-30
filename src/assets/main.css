@@ -4,8 +4,9 @@
 
 @layer base {
   input,
-  button {
-    @apply outline-none;
+  button,
+  textarea {
+    @apply outline-none focus:border-2;
   }
   :root {
     --text-xs: 12px;
