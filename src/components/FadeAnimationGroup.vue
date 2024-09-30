@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div class="px-10 pt-5 last:pb-5">
     <TransitionGroup>
-      <slot />  
+      <slot />
     </TransitionGroup>
   </div>
 </template>

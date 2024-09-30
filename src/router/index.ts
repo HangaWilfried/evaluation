@@ -7,13 +7,13 @@ const router = createRouter({
     {
       name: "home",
       path: "/",
-      component: WorkcationsList
+      component: WorkcationsList,
     },
     {
       name: "workcation",
       path: "/workcation/:id",
-      component: () => import("@/views/WorkcationDetails.vue")
-    }
+      component: () => import("@/views/WorkcationDetails.vue"),
+    },
   ],
 });
 
